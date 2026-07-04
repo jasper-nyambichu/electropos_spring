@@ -29,6 +29,13 @@ public class Product {
 
     private String imageUrl;
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     @ManyToOne
     @JoinColumn(name = "category_id")
