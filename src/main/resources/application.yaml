@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/electroprodb
-    username: dickson
-    password: Dickson@02
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/electroprodb}
+    username: ${SPRING_DATASOURCE_USERNAME:dickson}
+    password: ${SPRING_DATASOURCE_PASSWORD:Dickson@02}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -13,4 +13,4 @@ spring:
     show-sql: true
 
 server:
-  port: 8080
+  port: ${PORT:8080}
