@@ -28,6 +28,9 @@ public class SaleItemMapper {
 
     public SaleItemResponseDto toSaleItemResponseDto(SaleItem saleItem) {
         return new SaleItemResponseDto(
+                saleItem.getId(),
+                saleItem.getSale() != null ? saleItem.getSale().getId() : null,
+                saleItem.getProduct() != null ? saleItem.getProduct().getId() : null,
                 saleItem.getProduct() != null ? saleItem.getProduct().getName() : null,
                 saleItem.getQuantity(),
                 saleItem.getUnitPrice(),

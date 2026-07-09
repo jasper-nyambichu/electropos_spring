@@ -46,9 +46,11 @@ public class QuotationController {
 
     @PatchMapping("/quotations/{quotation-id}/convert")
     public QuotationResponseDto convertQuotation(
-            @PathVariable("quotation-id") Integer id
+            @PathVariable("quotation-id") Integer id,
+            @RequestBody(required = false) com.electropro.electropos.dto.ConvertQuotationDto dto
     ) {
-        return quotationService.convertQuotation(id);
+        String paymentMethod = dto != null ? dto.paymentMethod() : null;
+        return quotationService.convertQuotation(id, paymentMethod);
     }
 
     @DeleteMapping("/quotations/{quotation-id}")

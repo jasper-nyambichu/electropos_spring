@@ -2,6 +2,7 @@ package com.electropro.electropos.dto;
 
 import java.math.BigDecimal;
 import java.time.*;
+import java.util.List;
 
 
 public record QuotationResponseDto(
@@ -10,6 +11,8 @@ public record QuotationResponseDto(
         LocalDate expiryDate,
         BigDecimal totalAmount,
         String status,
-        String customerName
+        String customerName,
+        List<QuotationItemResponseDto> items,
+        Integer convertedSaleId
 ) {
 }

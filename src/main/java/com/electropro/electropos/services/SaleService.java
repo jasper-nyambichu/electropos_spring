@@ -27,6 +27,7 @@ public class SaleService {
         sale.setSaleDate(LocalDateTime.now());
         sale.setReceiptNumber("RCP-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
         sale.setStatus("COMPLETED");
+        sale.setTotalAmount(java.math.BigDecimal.ZERO);
         var savedSale = saleRepository.save(sale);
         return saleMapper.toSaleResponseDto(savedSale);
     }

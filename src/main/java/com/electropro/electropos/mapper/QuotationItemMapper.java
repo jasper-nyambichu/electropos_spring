@@ -29,6 +29,9 @@ public class QuotationItemMapper {
 
     public QuotationItemResponseDto toQuotationItemResponseDto(QuotationItem quotationItem) {
         return new QuotationItemResponseDto(
+                quotationItem.getId(),
+                quotationItem.getQuotation() != null ? quotationItem.getQuotation().getId() : null,
+                quotationItem.getProduct() != null ? quotationItem.getProduct().getId() : null,
                 quotationItem.getProduct() != null ? quotationItem.getProduct().getName() : null,
                 quotationItem.getQuantity(),
                 quotationItem.getUnitPrice(),

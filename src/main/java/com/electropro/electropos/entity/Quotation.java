@@ -25,6 +25,9 @@ public class Quotation {
     @OneToMany(mappedBy = "quotation", cascade = CascadeType.ALL)
     private List<QuotationItem> quotationItems;
 
+    @Column(name = "converted_sale_id")
+    private Integer convertedSaleId;
+
     public Quotation() {
     }
 
@@ -89,5 +92,13 @@ public class Quotation {
 
     public void setQuotationItems(List<QuotationItem> quotationItems) {
         this.quotationItems = quotationItems;
+    }
+
+    public Integer getConvertedSaleId() {
+        return convertedSaleId;
+    }
+
+    public void setConvertedSaleId(Integer convertedSaleId) {
+        this.convertedSaleId = convertedSaleId;
     }
 }

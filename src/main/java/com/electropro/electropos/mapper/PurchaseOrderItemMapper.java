@@ -29,6 +29,9 @@ public class PurchaseOrderItemMapper {
 
     public PurchaseOrderItemResponseDto toPurchaseOrderItemResponseDto(PurchaseOrderItem purchaseOrderItem) {
         return new PurchaseOrderItemResponseDto(
+                purchaseOrderItem.getId(),
+                purchaseOrderItem.getPurchaseOrder() != null ? purchaseOrderItem.getPurchaseOrder().getId() : null,
+                purchaseOrderItem.getProduct() != null ? purchaseOrderItem.getProduct().getId() : null,
                 purchaseOrderItem.getProduct() != null ? purchaseOrderItem.getProduct().getName() : null,
                 purchaseOrderItem.getQuantity(),
                 purchaseOrderItem.getUnitCost(),
