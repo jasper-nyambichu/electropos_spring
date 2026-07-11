@@ -1,17 +1,11 @@
 package com.electropro.electropos.config;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/**
- * Enables cross-origin requests from the frontend.
- *
- * Allowed origins are read from the ALLOWED_ORIGINS env var (comma separated),
- * e.g. "http://localhost:3000,https://your-frontend.vercel.app".
- * Falls back to localhost:3000 for local dev if the env var isn't set.
- */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
@@ -27,4 +21,9 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowCredentials(true)
                 .maxAge(3600);
     }
+    @PostConstruct
+    public void logOrigins() {
+        System.out.println("Allowed origins: " + allowedOrigins);
+    }
+
 }
